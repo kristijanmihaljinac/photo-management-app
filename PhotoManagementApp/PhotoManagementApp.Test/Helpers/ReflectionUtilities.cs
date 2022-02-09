@@ -23,7 +23,7 @@ namespace PhotoManagementApp.Test.Helpers
             var openCommandAndQueryInterfaces = new[]
             {
                 typeof(IQueryHandler<,>),
-                typeof(ICommandHandler<>)
+                typeof(ICommandHandler<,>)
             };
 
             var openEventInterfaces = new[]

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using PhotoManagementApp.Test.Helpers;
 using PhotoManagementApp.Test.Models;
+using PhotoManagementApp.Test.Models.Command;
 using PhotoManagementApp.Test.Models.GenericQuery;
 using PhotoManagementApp.Test.Models.GenericQuery.ViewModels;
 using System;
@@ -17,7 +18,7 @@ namespace PhotoManagementApp.Test
             _serviceProvider = CreateServiceCollection();
 
             var mediator = _serviceProvider.GetService<IMediator>();
-            var simpleQuery = new GetEntityQuery<Car>();
+            var simpleQuery = new SimpleCommand() { Name = "moje ime"};
 
             var result = mediator.HandleAsync(simpleQuery).Result;
             Console.WriteLine(result.Message);

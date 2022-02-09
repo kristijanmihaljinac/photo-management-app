@@ -2,7 +2,7 @@
 
 namespace Common.Mediator.Commands
 {
-    public interface ICommand : IMessage<Unit>
+    public interface ICommand<TResult> : IMessage<TResult>
     {
 
     }

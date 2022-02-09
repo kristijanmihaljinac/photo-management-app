@@ -1,4 +1,5 @@
-﻿using Common.Mediator.Core;
+﻿using Common.Mediator.Commands;
+using Common.Mediator.Core;
 using Common.Mediator.Events;
 using Common.Mediator.Queries;
 using System;
@@ -55,7 +56,7 @@ namespace Common.Mediator.Middleware
                 return result;
             }
 
-            if (typeof(IQuery<TResponse>).IsAssignableFrom(type) || typeof(ICommand).IsAssignableFrom(type))
+            if (typeof(IQuery<TResponse>).IsAssignableFrom(type) || typeof(ICommand<TResponse>).IsAssignableFrom(type))
             {
                 return await _messageHandlers.Single().HandleAsync(messageObject, mediationContext, cancellationToken);
             }
