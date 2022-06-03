@@ -2,6 +2,7 @@
 using Common.Mediator.Core;
 using Common.Mediator.Events;
 using Common.Mediator.Queries;
+using Common.Mediator.UseCases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,7 +57,9 @@ namespace Common.Mediator.Middleware
                 return result;
             }
 
-            if (typeof(IQuery<TResponse>).IsAssignableFrom(type) || typeof(ICommand<TResponse>).IsAssignableFrom(type))
+            if (typeof(IQuery<TResponse>).IsAssignableFrom(type) 
+                || typeof(ICommand<TResponse>).IsAssignableFrom(type) 
+                || typeof(IUseCase<TResponse>).IsAssignableFrom(type))
             {
                 return await _messageHandlers.Single().HandleAsync(messageObject, mediationContext, cancellationToken);
             }
