@@ -1,5 +1,11 @@
 # PHOTO MANAGEMENT APP - PROJECT ASIGNMENT
 
+Used technologies:
+ - Frontend: TypeScript, Angular, Bootstrap 5
+ - Backend: C#, .NET 6 Web API, Clean code architecture, DDD,
+ - Database: Sql Server
+    
+
 Create an app to upload and browse photos.
 
 Functional requirements:
