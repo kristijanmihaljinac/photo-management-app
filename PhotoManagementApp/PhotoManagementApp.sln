@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{CB68EC00-EEEF-462B-9E7B-1FAF3F4A51DC}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{6E897CFC-7D1A-414D-8752-72823C3E99D9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{63D0AEDD-3B18-4CE9-8964-8DA89790262E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{442C5F3C-6F0C-4E7D-ADA8-0637092D90E3}"
 EndProject
@@ -21,7 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{A07C2AB4-205C-46AE-870C-E0DFC911E1D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoManagementApp.API", "PhotoManagementApp.API\PhotoManagementApp.API.csproj", "{C6C0B0E4-55C9-44E6-BBE4-AE18085B2ECF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoManagementApp.API", "PhotoManagementApp.API\PhotoManagementApp.API.csproj", "{C6C0B0E4-55C9-44E6-BBE4-AE18085B2ECF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoManagementApp.Application", "PhotoManagementApp.Application\PhotoManagementApp.Application.csproj", "{5F49292B-1B03-4147-A93C-DE4BF65CF365}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoManagementApp.Domain", "PhotoManagementApp.Domain\PhotoManagementApp.Domain.csproj", "{8C48039F-470B-45FB-881C-0439BC4A1F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoManagementApp.Infrastructure", "PhotoManagementApp.Infrastructure\PhotoManagementApp.Infrastructure.csproj", "{FAD0DED4-9745-4725-909C-519D94D9E83F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoManagementApp.IoC", "PhotoManagementApp.IoC\PhotoManagementApp.IoC.csproj", "{23BE19DA-5FF7-49A8-AFB6-B4DB355AB78A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,22 @@ Global
 		{C6C0B0E4-55C9-44E6-BBE4-AE18085B2ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6C0B0E4-55C9-44E6-BBE4-AE18085B2ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6C0B0E4-55C9-44E6-BBE4-AE18085B2ECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F49292B-1B03-4147-A93C-DE4BF65CF365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F49292B-1B03-4147-A93C-DE4BF65CF365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F49292B-1B03-4147-A93C-DE4BF65CF365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F49292B-1B03-4147-A93C-DE4BF65CF365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C48039F-470B-45FB-881C-0439BC4A1F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C48039F-470B-45FB-881C-0439BC4A1F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C48039F-470B-45FB-881C-0439BC4A1F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C48039F-470B-45FB-881C-0439BC4A1F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD0DED4-9745-4725-909C-519D94D9E83F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD0DED4-9745-4725-909C-519D94D9E83F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD0DED4-9745-4725-909C-519D94D9E83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD0DED4-9745-4725-909C-519D94D9E83F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23BE19DA-5FF7-49A8-AFB6-B4DB355AB78A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23BE19DA-5FF7-49A8-AFB6-B4DB355AB78A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23BE19DA-5FF7-49A8-AFB6-B4DB355AB78A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23BE19DA-5FF7-49A8-AFB6-B4DB355AB78A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +74,10 @@ Global
 		{4624EF47-FDA0-4CBE-B1BC-690D1E4F16DC} = {DFC9453B-4161-4A35-A0FA-1426B15C0192}
 		{C0FA05A6-64C6-4A90-AEEA-C4439D1330D6} = {442C5F3C-6F0C-4E7D-ADA8-0637092D90E3}
 		{C6C0B0E4-55C9-44E6-BBE4-AE18085B2ECF} = {A07C2AB4-205C-46AE-870C-E0DFC911E1D8}
+		{5F49292B-1B03-4147-A93C-DE4BF65CF365} = {6E897CFC-7D1A-414D-8752-72823C3E99D9}
+		{8C48039F-470B-45FB-881C-0439BC4A1F72} = {6E897CFC-7D1A-414D-8752-72823C3E99D9}
+		{FAD0DED4-9745-4725-909C-519D94D9E83F} = {6E897CFC-7D1A-414D-8752-72823C3E99D9}
+		{23BE19DA-5FF7-49A8-AFB6-B4DB355AB78A} = {6E897CFC-7D1A-414D-8752-72823C3E99D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A01C513-D508-422D-B61F-5B0245C2035B}
