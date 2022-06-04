@@ -1,7 +1,7 @@
 # PHOTO MANAGEMENT APP - PROJECT ASIGNMENT
 
 Used technologies:
- - Frontend: TypeScript, Angular, Bootstrap 5
+ - Frontend: TypeScript, Angular 14, TailwindCSS
  - Backend: C#, .NET 6 Web API, Clean code architecture, DDD,
  - Database: Sql Server
     
