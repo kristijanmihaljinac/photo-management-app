@@ -1,15 +1,15 @@
 ﻿using Common.Mediator.Core;
 using Common.Mediator.Middleware;
+using FluentValidation;
 
 namespace PhotoManagementApp.Application.UseCases.SampleUseCase
 {
-    public class SimpleUseCaseValidator : IMiddleware<SampleUseCase, bool>
+    public class SimpleUseCaseValidator : AbstractValidator<SampleUseCase>
     {
-        public async Task<bool> RunAsync(SampleUseCase message, IMediationContext mediationContext, CancellationToken cancellationToken, HandleMessageDelegate<SampleUseCase, bool> next)
+        public SimpleUseCaseValidator()
         {
-            Console.WriteLine("Validation hit");
-
-            return await next.Invoke(message, mediationContext, cancellationToken);
+            RuleFor(x => x.Sample)
+                .NotEmpty().WithMessage("Sample is required");
         }
     }
 }

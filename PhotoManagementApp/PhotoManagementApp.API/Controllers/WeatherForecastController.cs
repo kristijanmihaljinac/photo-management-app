@@ -29,10 +29,10 @@ namespace PhotoManagementApp.API.Controllers
         {
             var sampleUseCse = new SampleUseCase
             {
-                Sample = "Ovo valjda šljaka"
+ 
             };
 
-            await _mediator.HandleAsync(sampleUseCse);
+            var isOk = await _mediator.HandleAsync(sampleUseCse);
             
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
