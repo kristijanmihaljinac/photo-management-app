@@ -1,14 +1,18 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Autofac;
+using Microsoft.Extensions.Configuration;
 
 namespace PhotoManagementApp.IoC
 {
     public static class DependencyContainer
     {
-        public static void RegisterService(IServiceCollection services, IConfiguration configuration)
+        public static void RegisterModules(ContainerBuilder builder, IConfiguration configuration)
         {
-            // Infrastructure
-          
+            string photoManagementDbConnectionString = configuration.GetConnectionString("PhotoManagementDb");
+
+            builder.RegisterModule(new Modules.Application.MediatorModule());
+            builder.RegisterModule(new Modules.Application.ApplicationModule(photoManagementDbConnectionString));
+            
+
         }
     }
 }

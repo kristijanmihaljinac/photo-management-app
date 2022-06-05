@@ -3,6 +3,7 @@ using Common.Mediator.Core;
 using Common.Mediator.Events;
 using Common.Mediator.Middleware;
 using Common.Mediator.Queries;
+using Common.Mediator.UseCases;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
@@ -23,7 +24,8 @@ namespace PhotoManagementApp.Test.Helpers
             var openCommandAndQueryInterfaces = new[]
             {
                 typeof(IQueryHandler<,>),
-                typeof(ICommandHandler<,>)
+                typeof(ICommandHandler<,>),
+                typeof(IUseCaseHandler<,>)
             };
 
             var openEventInterfaces = new[]

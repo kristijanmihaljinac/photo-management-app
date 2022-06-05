@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace Common.Mediator.Middleware
 {
@@ -38,7 +37,7 @@ namespace Common.Mediator.Middleware
             CancellationToken cancellationToken)
         {
             var type = typeof(TMessage);
-
+            var lenght = _messageHandlers.Count();
             if (!_messageHandlers.Any())
             {
                 throw new ArgumentException($"No handler of signature {typeof(IMessageHandler<,>).Name} was found for {typeof(TMessage).Name}", typeof(TMessage).FullName);
@@ -57,14 +56,14 @@ namespace Common.Mediator.Middleware
                 return result;
             }
 
-            if (typeof(IQuery<TResponse>).IsAssignableFrom(type) 
-                || typeof(ICommand<TResponse>).IsAssignableFrom(type) 
+            if (typeof(IQuery<TResponse>).IsAssignableFrom(type)
+                || typeof(ICommand<TResponse>).IsAssignableFrom(type)
                 || typeof(IUseCase<TResponse>).IsAssignableFrom(type))
             {
                 return await _messageHandlers.Single().HandleAsync(messageObject, mediationContext, cancellationToken);
             }
 
-            throw new ArgumentException($"{typeof(TMessage).Name} is not a known type of {typeof(IMessage<>).Name} - Query, Command or Event", typeof(TMessage).FullName);
+            throw new ArgumentException($"{typeof(TMessage).Name} is not a known type of {typeof(IMessage<>).Name} - Query, Command, UseCase or Event", typeof(TMessage).FullName);
         }
 
         private Task<TResponse> RunMiddleware(TMessage message, HandleMessageDelegate<TMessage, TResponse> handleMessageHandlerCall,
@@ -72,7 +71,11 @@ namespace Common.Mediator.Middleware
         {
             HandleMessageDelegate<TMessage, TResponse> next = null;
 
-            next = _middlewares.Reverse().Aggregate(handleMessageHandlerCall, (messageDelegate, middleware) =>
+            //TODO - sort middlewares by chan of responsibility
+            // .Reverse()
+            // .OrderBy
+
+            next = _middlewares.Aggregate(handleMessageHandlerCall, (messageDelegate, middleware) =>
                 ((req, ctx, ct) => middleware.RunAsync(req, ctx, ct, messageDelegate)));
 
             return next.Invoke(message, mediationContext, cancellationToken);
