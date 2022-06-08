@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Package\Events\" />
+    <Folder Include="Package\Repositories\" />
+    <Folder Include="Package\ValueObjects\" />
+  </ItemGroup>
+
 </Project>

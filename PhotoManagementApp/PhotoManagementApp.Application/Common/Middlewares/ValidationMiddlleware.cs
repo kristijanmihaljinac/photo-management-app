@@ -1,11 +1,6 @@
 ﻿using Common.Mediator.Core;
 using Common.Mediator.Middleware;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhotoManagementApp.Application.Common.Middlewares
 {
@@ -15,8 +10,8 @@ namespace PhotoManagementApp.Application.Common.Middlewares
         public ValidationMiddlleware(IEnumerable<IValidator<TMessage>> validators)
         {
             _validators = validators;
-
         }
+
         public async Task<TResponse> RunAsync(TMessage message, IMediationContext mediationContext, CancellationToken cancellationToken, HandleMessageDelegate<TMessage, TResponse> next)
         {
             if (_validators.Any())

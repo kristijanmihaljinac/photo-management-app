@@ -23,7 +23,10 @@ namespace PhotoManagementApp.IoC.Modules.Application
 
 
             var appAssembly = Assembly.Load("PhotoManagementApp.Application");
-            builder.RegisterAssemblyTypes(appAssembly).AsClosedTypesOf(typeof(IValidator<>)).AsImplementedInterfaces();
+
+            builder.RegisterAssemblyTypes(appAssembly)
+                .AsClosedTypesOf(typeof(IValidator<>))
+                .AsImplementedInterfaces();
 
             builder.RegisterType<PackageRepository>().As<IPackageRepository>();
 
