@@ -14,4 +14,13 @@
     <ProjectReference Include="..\PhotoManagementApp.Domain\PhotoManagementApp.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Package\CreatePackage\" />
+    <Folder Include="Package\DeletePackage\" />
+    <Folder Include="Package\GetPackageById\" />
+    <Folder Include="Package\GetPackagesBySpecification\" />
+    <Folder Include="Package\UpdatePackage\" />
+    <Folder Include="UseCases\PackageUseCase\" />
+  </ItemGroup>
+
 </Project>
