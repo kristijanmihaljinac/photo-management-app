@@ -10,8 +10,8 @@ namespace PhotoManagementApp.IoC
             string photoManagementDbConnectionString = configuration.GetConnectionString("PhotoManagementDb");
 
             builder.RegisterModule(new Modules.Application.MediatorModule());
-            builder.RegisterModule(new Modules.Application.ApplicationModule(photoManagementDbConnectionString));
-            
+            builder.RegisterModule(new Modules.Application.ApplicationModule());
+            builder.RegisterModule(new Modules.Application.InfrastructureModule(photoManagementDbConnectionString));
 
         }
     }

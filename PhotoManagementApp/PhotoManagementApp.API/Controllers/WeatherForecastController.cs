@@ -1,6 +1,5 @@
 using Common.Mediator.Core;
 using Microsoft.AspNetCore.Mvc;
-using PhotoManagementApp.Application.UseCases.SampleUseCase;
 
 namespace PhotoManagementApp.API.Controllers
 {
@@ -27,13 +26,6 @@ namespace PhotoManagementApp.API.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public async Task<IEnumerable<WeatherForecast>> Get()
         {
-            var sampleUseCse = new SampleUseCase
-            {
- 
-            };
-
-            var isOk = await _mediator.HandleAsync(sampleUseCse);
-            
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),

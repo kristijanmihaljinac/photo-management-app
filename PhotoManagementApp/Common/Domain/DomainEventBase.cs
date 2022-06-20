@@ -4,12 +4,15 @@
     {
         public Guid Id { get; }
 
-        public DateTime OccurredOn { get; }
+        public DateTimeOffset OccurredOn { get; }
+
+ 
 
         public DomainEventBase()
         {
             this.Id = Guid.NewGuid();
-            this.OccurredOn = DateTime.UtcNow;
+
+            this.OccurredOn = DateTimeOffset.UtcNow;
         }
     }
 }

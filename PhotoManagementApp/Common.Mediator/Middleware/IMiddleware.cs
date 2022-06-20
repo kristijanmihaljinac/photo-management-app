@@ -8,6 +8,8 @@ namespace Common.Mediator.Middleware
 
     public interface IMiddleware<TMessage, TResponse> where TMessage : IMessage<TResponse>
     {
+        //public IMiddleware<TMessage, TResponse> Next { get; set; }
+
         Task<TResponse> RunAsync(TMessage message, IMediationContext mediationContext,
             CancellationToken cancellationToken, HandleMessageDelegate<TMessage, TResponse> next);
     }

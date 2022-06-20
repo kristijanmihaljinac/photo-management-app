@@ -1,9 +1,11 @@
-﻿namespace Common.Domain
+﻿using Common.Mediator.Events;
+
+namespace Common.Domain
 {
-    public interface IDomainEvent
+    public interface IDomainEvent : IEvent
     {
         Guid Id { get; }
 
-        DateTime OccurredOn { get; }
+        DateTimeOffset OccurredOn { get; }
     }
 }

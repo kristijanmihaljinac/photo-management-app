@@ -2,6 +2,8 @@
 {
     public abstract class EntityBase<TId>
     {
+        public TId Id { get; private set; }
+
         private List<IDomainEvent> _domainEvents;
 
         /// <summary>

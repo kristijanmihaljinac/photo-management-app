@@ -15,12 +15,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Package\CreatePackage\" />
+    <Folder Include="Codebooks\Package\PackageRestriction\CreatePackageRestriction\" />
+    <Folder Include="Codebooks\Package\PackageRestriction\DeletePackageRestriction\" />
+    <Folder Include="Codebooks\Package\PackageRestriction\GetPackageRestrictionById\" />
+    <Folder Include="Codebooks\Package\PackageRestriction\OverviewPackageRestrictions\" />
+    <Folder Include="Codebooks\Package\PackageRestriction\Shared\Repositories\" />
     <Folder Include="Package\DeletePackage\" />
     <Folder Include="Package\GetPackageById\" />
     <Folder Include="Package\GetPackagesBySpecification\" />
-    <Folder Include="Package\UpdatePackage\" />
-    <Folder Include="UseCases\PackageUseCase\" />
   </ItemGroup>
 
 </Project>

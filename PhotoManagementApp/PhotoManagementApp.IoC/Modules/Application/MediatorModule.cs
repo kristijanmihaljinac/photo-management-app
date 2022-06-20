@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace PhotoManagementApp.IoC.Modules.Application
 {
-    public class MediatorModule : Autofac.Module
+    internal class MediatorModule : Autofac.Module
     {
         protected override void Load(ContainerBuilder builder)
         {
@@ -17,7 +17,10 @@ namespace PhotoManagementApp.IoC.Modules.Application
 
             foreach (var assembly in assemblies)
             {
-                builder.RegisterAssemblyTypes(assembly).AsClosedTypesOf(typeof(IMessageHandler<,>)).AsImplementedInterfaces();
+                builder
+                    .RegisterAssemblyTypes(assembly)
+                    .AsClosedTypesOf(typeof(IMessageHandler<,>))
+                    .AsImplementedInterfaces();
 
                 AddMiddleware(assembly, builder);
             }

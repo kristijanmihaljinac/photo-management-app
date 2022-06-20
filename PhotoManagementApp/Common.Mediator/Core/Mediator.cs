@@ -1,5 +1,8 @@
-﻿using Common.Mediator.Middleware;
+﻿using Common.Mediator.Events;
+using Common.Mediator.Middleware;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,13 +26,33 @@ namespace Common.Mediator.Core
                 mediationContext = MediationContext.Default;
             }
 
-            var targetType = message.GetType();
-            var targetHandler = typeof(IMessageProcessor<,>).MakeGenericType(targetType, typeof(TResponse));
-            var instance = _serviceFactory.GetInstance(targetHandler);
+            var targetHandler = GetTargetHandler<TResponse>(message.GetType());
 
-            var result = InvokeInstanceAsync(instance, message, targetHandler, mediationContext, cancellationToken);
+            var result = InvokeInstanceAsync(_serviceFactory.GetInstance(targetHandler), message, targetHandler, mediationContext, cancellationToken);
 
             return result;
+        }
+
+        public Task HandleEventsAsync(IReadOnlyCollection<IEvent> messages, IMediationContext mediationContext = null, CancellationToken cancellationToken = default)
+        {
+            if (mediationContext == null)
+            {
+                mediationContext = MediationContext.Default;
+            }
+
+            var targetHandlers = messages.Select(message => new Tuple<Type, IEvent>(GetTargetHandler<Unit>(message.GetType()), message));
+
+
+            Parallel.ForEach(targetHandlers,
+                 handler =>
+                 InvokeInstanceAsync(_serviceFactory.GetInstance(handler.Item1), handler.Item2, handler.Item1, mediationContext, cancellationToken));
+
+            return Task.CompletedTask;
+        }
+
+        private Type GetTargetHandler<TResponse>(Type targetType)
+        {
+            return typeof(IMessageProcessor<,>).MakeGenericType(targetType, typeof(TResponse));
         }
 
         private Task<TResponse> InvokeInstanceAsync<TResponse>(object instance, IMessage<TResponse> message, Type targetHandler,
