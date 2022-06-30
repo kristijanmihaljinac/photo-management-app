@@ -2,6 +2,7 @@
 using PhotoManagementApp.Application.Package.CreatePackage;
 using PhotoManagementApp.Application.Package.Shared.Repositories;
 using PhotoManagementApp.Application.Package.UpdatePackage;
+using PhotoManagementApp.Infrastructure.Mappers;
 
 namespace PhotoManagementApp.Infrastructure.Repositories.Package
 {
@@ -17,16 +18,30 @@ namespace PhotoManagementApp.Infrastructure.Repositories.Package
             _mediator = mediator;
         }
 
-        public Task<CreatePackageDto> Add(Domain.Package.Package model)
+        public async Task<CreatePackageDto> Add(Domain.Package.Package model)
         {
             using var _dbContext = _dbContextFactory.Create();
 
-            throw new NotImplementedException();
+            var dbModel = model.MapToDb();
+
+            _dbContext.Set<Entities.Package>().Add(dbModel);
+
+            await _dbContext.SaveChangesAsync();
+
+            //await _mediator.HandleEventsAsync(model.DomainEvents);
+
+            return dbModel.MapToCreatePackageDto();
         }
 
         public async Task Delete(long id)
         {
-            throw new NotImplementedException();
+            using var _dbContext = _dbContextFactory.Create();
+
+            var entity = await _dbContext.Packages.FindAsync(id);
+
+            entity.Active = false;
+
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<UpdatePackageDto> Update(Domain.Package.Package model)

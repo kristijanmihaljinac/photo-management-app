@@ -9,7 +9,6 @@ namespace PhotoManagementApp.Infrastructure.Entities
     {
         public Context()
         {
-
         }
 
         public Context(DbContextOptions<Context> options)
@@ -50,6 +49,8 @@ namespace PhotoManagementApp.Infrastructure.Entities
             {
                 entity.ToTable("Package");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.Code).HasMaxLength(50);
 
                 entity.Property(e => e.DateCreated).HasPrecision(0);
@@ -82,7 +83,11 @@ namespace PhotoManagementApp.Infrastructure.Entities
 
                 entity.Property(e => e.DateCreated).HasPrecision(0);
 
+                entity.Property(e => e.DateLastModified).HasPrecision(0);
+
                 entity.Property(e => e.DefaultValue).HasMaxLength(255);
+
+                entity.Property(e => e.Description).HasMaxLength(255);
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
@@ -103,6 +108,10 @@ namespace PhotoManagementApp.Infrastructure.Entities
                 entity.ToTable("PackageRestrictionValue");
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.DateCreated).HasPrecision(0);
+
+                entity.Property(e => e.DateLastModified).HasPrecision(0);
 
                 entity.Property(e => e.Value).HasMaxLength(255);
 

@@ -7,7 +7,7 @@ namespace PhotoManagementApp.Infrastructure.Entities
     {
         public long Id { get; set; }
         public long PackageRestrictionId { get; set; }
-        public long PackageId { get; set; }
+        public Guid PackageId { get; set; }
         public string Value { get; set; } = null!;
         public DateTimeOffset DateCreated { get; set; }
         public Guid UserCreatedId { get; set; }

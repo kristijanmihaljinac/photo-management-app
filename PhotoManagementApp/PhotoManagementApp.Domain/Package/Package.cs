@@ -3,7 +3,7 @@ using PhotoManagementApp.Domain.Package.ValueObjects;
 
 namespace PhotoManagementApp.Domain.Package
 {
-    public class Package : EntityBase<long>, IAggregateRoot
+    public class Package : EntityBase<Guid>, IAggregateRoot
     {
         public string Code { get; private set; }
         public string Name { get; private set; } 

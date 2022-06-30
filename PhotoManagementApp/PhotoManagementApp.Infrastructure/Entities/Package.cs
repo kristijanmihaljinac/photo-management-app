@@ -10,7 +10,7 @@ namespace PhotoManagementApp.Infrastructure.Entities
             PackageRestrictionValues = new HashSet<PackageRestrictionValue>();
         }
 
-        public long Id { get; set; }
+        public Guid Id { get; set; }
         public string Code { get; set; } = null!;
         public string Name { get; set; } = null!;
         public DateTimeOffset DateCreated { get; set; }

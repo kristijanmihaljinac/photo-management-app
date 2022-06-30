@@ -13,13 +13,15 @@ namespace PhotoManagementApp.Infrastructure.Entities
         public long Id { get; set; }
         public string Code { get; set; } = null!;
         public string Name { get; set; } = null!;
+        public string? Description { get; set; }
+        public int OrderLevel { get; set; }
         public string DataType { get; set; } = null!;
         public string? DefaultValue { get; set; }
         public DateTimeOffset DateCreated { get; set; }
         public Guid UserCreatedId { get; set; }
         public DateTimeOffset? DateLastModified { get; set; }
         public Guid? UserLastModifiedId { get; set; }
-        public long Active { get; set; }
+        public bool Active { get; set; }
 
         public virtual AppUser UserCreated { get; set; } = null!;
         public virtual AppUser? UserLastModified { get; set; }
