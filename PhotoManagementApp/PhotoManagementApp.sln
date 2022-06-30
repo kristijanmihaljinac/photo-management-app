@@ -19,13 +19,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{A07C2AB4-205
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoManagementApp.API", "PhotoManagementApp.API\PhotoManagementApp.API.csproj", "{C6C0B0E4-55C9-44E6-BBE4-AE18085B2ECF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoManagementApp.Application", "PhotoManagementApp.Application\PhotoManagementApp.Application.csproj", "{5F49292B-1B03-4147-A93C-DE4BF65CF365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoManagementApp.Application", "PhotoManagementApp.Application\PhotoManagementApp.Application.csproj", "{5F49292B-1B03-4147-A93C-DE4BF65CF365}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoManagementApp.Domain", "PhotoManagementApp.Domain\PhotoManagementApp.Domain.csproj", "{8C48039F-470B-45FB-881C-0439BC4A1F72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoManagementApp.Domain", "PhotoManagementApp.Domain\PhotoManagementApp.Domain.csproj", "{8C48039F-470B-45FB-881C-0439BC4A1F72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoManagementApp.Infrastructure", "PhotoManagementApp.Infrastructure\PhotoManagementApp.Infrastructure.csproj", "{FAD0DED4-9745-4725-909C-519D94D9E83F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoManagementApp.Infrastructure", "PhotoManagementApp.Infrastructure\PhotoManagementApp.Infrastructure.csproj", "{FAD0DED4-9745-4725-909C-519D94D9E83F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoManagementApp.IoC", "PhotoManagementApp.IoC\PhotoManagementApp.IoC.csproj", "{23BE19DA-5FF7-49A8-AFB6-B4DB355AB78A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoManagementApp.IoC", "PhotoManagementApp.IoC\PhotoManagementApp.IoC.csproj", "{23BE19DA-5FF7-49A8-AFB6-B4DB355AB78A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{70D98358-9E55-48F2-9F4B-67FAD6FE9462}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{32B25190-0F12-4EF4-ADFE-9898B534C41F}"
+	ProjectSection(SolutionItems) = preProject
+		DbScript.sql = DbScript.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +85,7 @@ Global
 		{8C48039F-470B-45FB-881C-0439BC4A1F72} = {6E897CFC-7D1A-414D-8752-72823C3E99D9}
 		{FAD0DED4-9745-4725-909C-519D94D9E83F} = {6E897CFC-7D1A-414D-8752-72823C3E99D9}
 		{23BE19DA-5FF7-49A8-AFB6-B4DB355AB78A} = {6E897CFC-7D1A-414D-8752-72823C3E99D9}
+		{32B25190-0F12-4EF4-ADFE-9898B534C41F} = {70D98358-9E55-48F2-9F4B-67FAD6FE9462}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A01C513-D508-422D-B61F-5B0245C2035B}
