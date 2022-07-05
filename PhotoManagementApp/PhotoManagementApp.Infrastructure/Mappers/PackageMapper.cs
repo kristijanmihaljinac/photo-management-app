@@ -1,9 +1,4 @@
 ﻿using PhotoManagementApp.Application.Package.CreatePackage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhotoManagementApp.Infrastructure.Mappers
 {
@@ -27,14 +22,14 @@ namespace PhotoManagementApp.Infrastructure.Mappers
 
             return new Entities.Package
             {
-                Id = model.Id, 
-                Active = model.Active, 
-                Code = model.Code, 
+                Id = model.Id,
+                Active = model.Active,
+                Code = model.Code,
                 DateCreated = model.DateCreated,
-                DateLastModified = model.DateLastModified, 
-                Name = model.Name, 
+                DateLastModified = model.DateLastModified,
+                Name = model.Name,
                 PackageRestrictionValues = model.RestrictionValues.Select(x => x.MapToDb()).ToList(),
-                UserCreatedId = model.UserCreatedId, 
+                UserCreatedId = model.UserCreatedId,
                 UserLastModifiedId = model.UserLastModifiedId
             };
         }

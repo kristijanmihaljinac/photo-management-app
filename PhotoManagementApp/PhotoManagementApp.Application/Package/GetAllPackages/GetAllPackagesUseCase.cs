@@ -2,7 +2,7 @@
 
 namespace PhotoManagementApp.Application.Package.GetAllPackages
 {
-    public class GetAllPackagesUseCase : IUseCase<List<GetAllPackagesDto>>
+    public class GetAllPackagesUseCase : IUseCase<IEnumerable<GetAllPackagesDto>>
     {
 
     }

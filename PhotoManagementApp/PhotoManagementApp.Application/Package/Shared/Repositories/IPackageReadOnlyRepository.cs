@@ -4,6 +4,6 @@ namespace PhotoManagementApp.Application.Package.Shared.Repositories
 {
     public interface IPackageReadOnlyRepository
     {
-        Task<IReadOnlyCollection<GetAllPackagesDto>> GetAll();
+        Task<IEnumerable<GetAllPackagesDto>> GetAll();
     }
 }

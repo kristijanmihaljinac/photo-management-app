@@ -1,35 +1,26 @@
-﻿using Common.Mediator.Core;
-using Microsoft.EntityFrameworkCore;
+﻿using Dapper;
 using PhotoManagementApp.Application.Package.GetAllPackages;
 using PhotoManagementApp.Application.Package.Shared.Repositories;
+using System.Data;
 
 namespace PhotoManagementApp.Infrastructure.Repositories.Package
 {
-    public class PackageReadOnlyRepository //: IPackageReadOnlyRepository
+    public class PackageReadOnlyRepository : IPackageReadOnlyRepository
     {
-        private readonly IDbContextFactory _dbContextFactory;
-        private readonly IMediator _mediator;
+        private readonly IDbConnection _dbConnection;
         public PackageReadOnlyRepository(
-            IDbContextFactory dbContextFactory,
-            IMediator mediator)
+            IDbConnection dbConnection)
         {
-            _dbContextFactory = dbContextFactory;
-            _mediator = mediator;
+            _dbConnection = dbConnection;
         }
 
-        //public async Task<IReadOnlyCollection<GetAllPackagesDto>> GetAll()
-        //{
-        //    using var _dbContext = _dbContextFactory.Create();
+        public async Task<IEnumerable<GetAllPackagesDto>> GetAll()
+        {
+            var response = await _dbConnection.QueryAsync<GetAllPackagesDto>($"SELECT * FROM [dbo].[GetAllPackagesQueryView]");
 
-        //    var packages = await _dbContext
-        //        .Set<Entities.Package>()
-        //        .ToListAsync()
-        //        .ConfigureAwait(false);
+            return response;
+        }
 
 
-
-        //    return packages;
-
-        //}
     }
 }
