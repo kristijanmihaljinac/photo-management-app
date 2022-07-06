@@ -16,7 +16,7 @@ namespace PhotoManagementApp.API.Endpoints.Package.GetAll
             _mediator = mediator;
         }
 
-        [HttpGet("/packages")]
+        [HttpGet("/api/packages")]
         [SwaggerOperation(
             Summary = "Get all Packages",
             Description = "Get all Packages",

@@ -27,7 +27,7 @@ namespace PhotoManagementApp.IoC.Modules.Application
                 .WithParameter("connectionString", _connectionString);
 
 
-            builder.RegisterType<IPackageReadOnlyRepository>().As<PackageReadOnlyRepository>();
+            builder.RegisterType<PackageReadOnlyRepository>().As<IPackageReadOnlyRepository>().InstancePerLifetimeScope();
 
             //builder.RegisterAssemblyTypes(appAssembly)
             //.AsClosedTypesOf(typeof(ICodebookRepository<>))

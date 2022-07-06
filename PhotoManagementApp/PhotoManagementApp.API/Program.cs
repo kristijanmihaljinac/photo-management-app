@@ -5,6 +5,11 @@ using PhotoManagementApp.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -46,10 +51,11 @@ app.UseSwagger();
 // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
 
+app.UseCors("corsapp");
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapDefaultControllerRoute();
-    endpoints.MapRazorPages();
 });
 
 
