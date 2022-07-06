@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { ExampleComponent } from 'app/modules/admin/example/example.component';
+import { SharedModule } from 'app/shared/shared.module';
+
+
 
 const exampleRoutes: Route[] = [
     {
@@ -14,7 +17,8 @@ const exampleRoutes: Route[] = [
         ExampleComponent
     ],
     imports     : [
-        RouterModule.forChild(exampleRoutes)
+        SharedModule,
+        RouterModule.forChild(exampleRoutes)        
     ]
 })
 export class ExampleModule
