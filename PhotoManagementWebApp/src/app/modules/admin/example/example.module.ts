@@ -7,7 +7,7 @@ import { SharedModule } from 'app/shared/shared.module';
 
 const exampleRoutes: Route[] = [
     {
-        path     : '',
+        path     : 'example45',
         component: ExampleComponent
     }
 ];

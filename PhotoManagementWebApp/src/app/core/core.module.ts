@@ -1,7 +1,10 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { AuthModule } from 'app/core/auth/auth.module';
 import { IconsModule } from 'app/core/icons/icons.module';
 import { TranslocoCoreModule } from 'app/core/transloco/transloco.module';
+import { ApiPrefixInterceptor } from './service/api-prefix.interceptor';
+import { ApiService } from './service/api.service';
 
 
 @NgModule({
@@ -9,6 +12,10 @@ import { TranslocoCoreModule } from 'app/core/transloco/transloco.module';
         AuthModule,
         IconsModule,
         TranslocoCoreModule
+    ], 
+    providers: [
+        ApiService,
+        { provide: HTTP_INTERCEPTORS, useClass: ApiPrefixInterceptor, multi: true }
     ]
 })
 export class CoreModule
