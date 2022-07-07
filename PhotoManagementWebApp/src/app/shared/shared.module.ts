@@ -9,9 +9,13 @@ import {TableModule} from 'primeng/table';
 
 //Transloco
 import { TranslocoModule } from '@ngneat/transloco';
+//
 
 
 @NgModule({
+    declarations: [
+         
+    ],
     imports: [
 
         EditorModule,
