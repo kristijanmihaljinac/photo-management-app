@@ -11,10 +11,12 @@ import { EventService } from './demo/service/event.service';
 import { IconService } from './demo/service/icon.service';
 import { NodeService } from './demo/service/node.service';
 import { PhotoService } from './demo/service/photo.service';
+import { PackageOverviewComponent } from './modules/owner/packages/package/package-overview/package-overview.component';
+import { PackageManageComponent } from './modules/owner/packages/package/package-manage/package-manage.component';
 
 @NgModule({
     declarations: [
-        AppComponent, NotfoundComponent
+        AppComponent, NotfoundComponent, PackageOverviewComponent, PackageManageComponent
     ],
     imports: [
         AppRoutingModule,
